@@ -1,6 +1,7 @@
 package Model;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.util.Random;
 
@@ -31,7 +32,7 @@ public class Images {
         this.arrayImages = new ImageIcon[nbImage];
 
         /**
-         * Index of {@link Images#arrayImages}
+         * Index of {@link arrayImages}
          */
         int indexArrayImages = 0;
 
@@ -39,8 +40,14 @@ public class Images {
 
             int randomIndexOf_IMAGE_FILES = RANDOM.nextInt(lastIndex);
             File currentImageFile = IMAGE_FILES[randomIndexOf_IMAGE_FILES];
+            ImageIcon currentImage = new ImageIcon(CHEMIN + '/' + currentImageFile.getName());
 
-            this.arrayImages[indexArrayImages] = new ImageIcon(CHEMIN + '/' + currentImageFile.getName());
+            // Redimension image to 50px by 50px
+            Image image = currentImage.getImage();
+            Image newImage = image.getScaledInstance(50,50,  java.awt.Image.SCALE_SMOOTH);
+            ImageIcon newImageIcon = new ImageIcon(newImage);
+
+            this.arrayImages[indexArrayImages] = newImageIcon;
             indexArrayImages++;
 
             IMAGE_FILES[randomIndexOf_IMAGE_FILES] = IMAGE_FILES[lastIndex];

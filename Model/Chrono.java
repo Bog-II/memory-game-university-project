@@ -1,4 +1,4 @@
-package View;
+package Model;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +33,6 @@ public class Chrono extends JPanel implements ActionListener {
         this.time += 0.1;
         DecimalFormat decimalFormat = new DecimalFormat("#######0.0");
         String format = decimalFormat.format(time);
-//        System.out.println(format);
         this.chronoLabel.setText("Temps : " + format);
     }
 }

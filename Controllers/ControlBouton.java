@@ -1,4 +1,13 @@
 package Controllers;
 
-public class ControlBouton {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ControlBouton implements ActionListener {
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //
+    }
 }

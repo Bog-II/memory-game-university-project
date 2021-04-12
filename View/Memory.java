@@ -1,12 +1,16 @@
 package View;
 
+import Model.Chrono;
+import Model.Grille;
+
 import javax.swing.*;
 
 public class Memory extends JFrame {
     JPanel container = new JPanel();
-    
     Chrono chrono = new Chrono();
-    JPanel panelMenu = new Menu();
+    Menu panelMenu = new Menu();
+    Grille grille = new Grille(3);
+
 
     public Memory() {
         initFrame();
@@ -15,6 +19,9 @@ public class Memory extends JFrame {
         
         this.container.add(chrono);
         this.chrono.run();
+
+        this.container.add(grille);
+
 
         setContentPane(this.container);
     }
