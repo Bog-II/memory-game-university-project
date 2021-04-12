@@ -9,7 +9,7 @@ public class Memory extends JFrame {
     JPanel container = new JPanel();
     Chrono chrono = new Chrono();
     Menu panelMenu = new Menu();
-    Grille grille = new Grille(3);
+    Grille grille = new Grille(4);
 
 
     public Memory() {

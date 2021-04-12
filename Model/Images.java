@@ -35,7 +35,6 @@ public class Images {
          * Index of {@link arrayImages}
          */
         int indexArrayImages = 0;
-
         for (int lastIndex = NUMBER_OF_DISPONIBLE_IMAGES - 1; lastIndex > NUMBER_OF_DISPONIBLE_IMAGES - 1 - nbImage; lastIndex--) {
 
             int randomIndexOf_IMAGE_FILES = RANDOM.nextInt(lastIndex);
