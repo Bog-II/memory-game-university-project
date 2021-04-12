@@ -1,4 +1,9 @@
 package View.MenuItems;
 
-public class NouvellePartie {
+import javax.swing.*;
+
+public class NouvellePartie extends JButton {
+    public NouvellePartie() {
+        super("Nouvelle Partie");
+    }
 }

@@ -52,11 +52,11 @@ public class Images {
         return arrayImages;
     }
 
-//    public void showArrayImages() {
-//        for (ImageIcon image : this.arrayImages) {
-//            System.out.println(image);
-//        }
-//    }
+    public void showArrayImages() {
+        for (ImageIcon image : this.arrayImages) {
+            System.out.println(image);
+        }
+    }
 
     public void setArrayImages(ImageIcon[] arrayImages) {
         this.arrayImages = arrayImages;
