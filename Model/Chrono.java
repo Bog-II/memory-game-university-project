@@ -1,6 +1,7 @@
 package Model;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -16,10 +17,15 @@ public class Chrono extends JPanel implements ActionListener {
 
 
     public Chrono() {
+        this.setLayout(new GridBagLayout());
         this.add(chronoLabel);
     }
 
-    public void run() {
+    public void start() {
+        this.TIMER.start();
+    }
+
+    public void restart() {
         this.time = 0;
         this.TIMER.restart();
     }

@@ -1,40 +1,55 @@
 package View;
 
 import Model.Chrono;
+import Model.EssaisRestant;
 import Model.Grille;
 
 import javax.swing.*;
 
 public class Memory extends JFrame {
-    JPanel container = new JPanel();
-    Chrono chrono = new Chrono();
-    Menu panelMenu = new Menu();
-    Grille grille = new Grille(4);
-
+    private JPanel container = new JPanel();
+    private Chrono chrono = new Chrono();
+    private Menu panelMenu;
+    private Grille grille = new Grille(4);
+    private EssaisRestant essaisRestant = new EssaisRestant();
 
     public Memory() {
-        initFrame();
 
-        this.container.add(panelMenu);
-        
-        this.container.add(chrono);
-        this.chrono.run();
+        initFrame();
+        initMenu();
+        initChrono();
 
         this.container.add(grille);
+        System.out.println(this.grille);
+        this.container.add(essaisRestant);
 
-
-        setContentPane(this.container);
+        this.setContentPane(this.container);
     }
-
-    public void createMenu(){
-    }
-
 
     public void initFrame(){
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        setSize(800, 600);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Projet Swing - S2 - Memory");
+        this.container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        this.setSize(600, 500);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle("Projet Swing - S2 - Memory");
     }
+
+    private void initMenu(){
+        this.panelMenu = new Menu(this);
+        this.container.add(this.panelMenu);
+    }
+
+    public void initChrono() {
+        this.container.add(chrono);
+        this.chrono.restart();
+    }
+
+    public Chrono getChrono() {
+        return this.chrono;
+    }
+
+    public Grille getGrille() {
+        return this.grille;
+    }
+
 }

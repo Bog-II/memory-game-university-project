@@ -18,7 +18,6 @@ public class Grille extends JPanel {
         this.isGridLengthEven = gridLength % 2 == 0;
         initImages(gridLength);
         addImagesToGrid();
-
         this.setLayout(new GridLayout(gridLength, gridLength, 40 / gridLength, 40 / gridLength));
     }
 
@@ -58,5 +57,13 @@ public class Grille extends JPanel {
         for (ImageIcon gridImage : this.gridImages) {
             this.add(new GridBouton(gridImage));
         }
+    }
+
+    public void newGrille(int newGridLength){
+        this.removeAll();
+        this.isGridLengthEven = newGridLength % 2 == 0;
+        initImages(newGridLength);
+        addImagesToGrid();
+        this.setLayout(new GridLayout(newGridLength, newGridLength, 40 / newGridLength, 40 / newGridLength));
     }
 }
