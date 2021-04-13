@@ -8,7 +8,10 @@ import java.util.Random;
 public class Images {
 
     // CONSTANTS
-    private final static String CHEMIN = "projet-swing-s2/Model/Images";
+    public final static int WIDTH_IMAGE = 70;
+    public final static int HEIGHT_IMAGE = 70;
+    public final static ImageIcon DEFAULT_COVER_IMAGE = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, new ImageIcon("projet-swing-s2/Model/Images/visibility.png"));
+    private final static String CHEMIN = "projet-swing-s2/Model/Images/Flag";
     private final static File FOLDER = new File(CHEMIN);
     private final static File[] IMAGE_FILES = FOLDER.listFiles();
     private final static int NUMBER_OF_DISPONIBLE_IMAGES = IMAGE_FILES.length;
@@ -40,11 +43,7 @@ public class Images {
             int randomIndexOf_IMAGE_FILES = RANDOM.nextInt(lastIndex);
             File currentImageFile = IMAGE_FILES[randomIndexOf_IMAGE_FILES];
             ImageIcon currentImage = new ImageIcon(CHEMIN + '/' + currentImageFile.getName());
-
-            // Redimension image to 50px by 50px
-            Image image = currentImage.getImage();
-            Image newImage = image.getScaledInstance(50,50,  java.awt.Image.SCALE_SMOOTH);
-            ImageIcon newImageIcon = new ImageIcon(newImage);
+            ImageIcon newImageIcon = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, currentImage);
 
             this.arrayImages[indexArrayImages] = newImageIcon;
             indexArrayImages++;
@@ -54,17 +53,19 @@ public class Images {
         }
     }
 
-    public ImageIcon[] getArrayImages() {
-        return arrayImages;
+    public static ImageIcon redimensionIconImage(int width, int heigh, ImageIcon imageIconToResize) {
+        Image image = imageIconToResize.getImage();
+        Image newImage = image.getScaledInstance(width, heigh, java.awt.Image.SCALE_SMOOTH);
+        return new ImageIcon(newImage);
     }
 
-    public void showArrayImages() {
-        for (ImageIcon image : this.arrayImages) {
-            System.out.println(image);
-        }
+    public ImageIcon[] getArrayImages() {
+        return arrayImages;
     }
 
     public void setArrayImages(ImageIcon[] arrayImages) {
         this.arrayImages = arrayImages;
     }
+
+
 }

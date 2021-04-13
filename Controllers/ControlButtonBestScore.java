@@ -10,7 +10,6 @@ public class ControlButtonBestScore implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Ajouté");
         JOptionPane.showMessageDialog(null, this.historic, "Historique des meilleurs scores", JOptionPane.INFORMATION_MESSAGE);
     }
 }

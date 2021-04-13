@@ -8,26 +8,32 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class GridBouton extends JButton {
-    private ImageIcon icon;
+    private ImageIcon hideImage;
 
     public GridBouton(ImageIcon icon) {
-        super(icon);
-        this.icon = icon;
-        this.setPreferredSize(new Dimension(50,50));
-        this.addActionListener(new ControlBouton());
+        this.setIcon(Images.DEFAULT_COVER_IMAGE);
+        this.setDisabledIcon(icon);
+        this.hideImage = icon;
+        this.setPreferredSize(new Dimension(75,75));
+        this.addActionListener(new ControlBouton(this));
         this.setBorder(new LineBorder(Color.BLACK));
     }
 
-    public static boolean equals(GridBouton b1, GridBouton b2){
-        return b1.getIcon().equals(b2.getIcon());
+    public static boolean equals(GridBouton b1, GridBouton b2) {
+        System.out.println(b1.getHideImage());
+        System.out.println(b2.getHideImage());
+        return b1.getHideImage().equals(b2.getHideImage());
     }
 
-    @Override
-    public ImageIcon getIcon() {
-        return icon;
+    public void revealHideImage() {
+        this.setIcon(this.hideImage);
     }
 
-    public void setIcon(ImageIcon icon) {
-        this.icon = icon;
+    public void hideRevealedImage() {
+        this.setIcon(Images.DEFAULT_COVER_IMAGE);
+    }
+
+    public ImageIcon getHideImage() {
+        return hideImage;
     }
 }

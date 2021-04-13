@@ -5,30 +5,31 @@ import Model.EssaisRestant;
 import Model.Grille;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Memory extends JFrame {
+    private static Memory selfMemory;
     private JPanel container = new JPanel();
-    private Chrono chrono = new Chrono();
     private Menu panelMenu;
+    private Chrono chrono = new Chrono();
+    private JPanel bienvenue = new JPanel();
     private Grille grille = new Grille(4);
-    private EssaisRestant essaisRestant = new EssaisRestant();
+    private EssaisRestant essaisRestant = new EssaisRestant(3);
 
     public Memory() {
-
         initFrame();
         initMenu();
         initChrono();
-
-        this.container.add(grille);
-        System.out.println(this.grille);
-        this.container.add(essaisRestant);
-
+        initBienvenue();
+        initGrille();
+        initEssaisRestants();
         this.setContentPane(this.container);
     }
 
     public void initFrame(){
+        selfMemory = this;
         this.container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        this.setSize(600, 500);
+        this.setSize(600, 550);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Projet Swing - S2 - Memory");
@@ -41,7 +42,24 @@ public class Memory extends JFrame {
 
     public void initChrono() {
         this.container.add(chrono);
-        this.chrono.restart();
+        this.chrono.setChronoLabelInvisible();
+    }
+
+    public void initBienvenue() {
+        JLabel bienvenueLabel = new JLabel("Welcome to Memory game");
+        bienvenueLabel.setFont(new Font("Serif", Font.PLAIN, 48));
+        this.bienvenue.add(bienvenueLabel);
+        this.container.add(this.bienvenue);
+    }
+
+    public void initGrille() {
+        this.container.add(grille);
+        this.grille.setVisible(false);
+    }
+
+    public void initEssaisRestants() {
+        this.container.add(essaisRestant);
+        this.essaisRestant.setEssaisRestantLabelInvisible();
     }
 
     public Chrono getChrono() {
@@ -52,4 +70,18 @@ public class Memory extends JFrame {
         return this.grille;
     }
 
+    public void startGame(){
+        this.chrono.setChronoLabelVisible();
+        this.bienvenue.setVisible(false);
+        this.grille.setVisible(true);
+        this.essaisRestant.setEssaisRestantLabelVisible();
+    }
+
+    public static Memory getSelfMemory(){
+        return selfMemory;
+    }
+
+    public Menu getPanelMenu() {
+        return panelMenu;
+    }
 }

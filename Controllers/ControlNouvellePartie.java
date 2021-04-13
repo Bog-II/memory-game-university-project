@@ -11,25 +11,34 @@ import java.awt.event.ActionListener;
 
 public class ControlNouvellePartie implements ActionListener {
 
-    private Memory memory;
-    private Chrono chrono;
-    private Grille grille;
-    private Menu menu;
+    /**
+     * Static Constants attributs
+     */
+    private static final Memory MEMORY = Memory.getSelfMemory();
+    private static final Chrono CHRONO = MEMORY.getChrono();
+    private static final Grille GRILLE = MEMORY.getGrille();
 
-    public ControlNouvellePartie(Memory memory, Menu menu) {
-        this.memory = memory;
-        this.grille = memory.getGrille();
-        this.chrono = memory.getChrono();
+    private Menu menu;
+    private boolean launchGameForFirstTime = true;
+
+    public ControlNouvellePartie() { }
+
+    public ControlNouvellePartie(Menu menu) {
         this.menu = menu;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        this.grille.newGrille(getTailleGrille());
-        this.chrono.restart();
+        if (launchGameForFirstTime) {
+            MEMORY.startGame();
+            launchGameForFirstTime = false;
+        }
+        GRILLE.newGrille(getTailleGrille());
+        ControlBouton.setIsThereAnGridButtonRevealedFalse();
+        CHRONO.restart();
     }
 
-    public int getTailleGrille(){
+    public int getTailleGrille() {
         return this.menu.getTailleGrillePanel().getTailleGrille();
     }
 }

@@ -1,15 +1,18 @@
 package Model;
 
+import View.Memory;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class EssaisRestant extends JPanel {
+
     private int nombreEssaisRestant;
     private JLabel essaisRestantLabel;
 
-    public EssaisRestant() {
+    public EssaisRestant(int nombreEssaisRestant) {
         this.setLayout(new GridBagLayout());
-        this.nombreEssaisRestant = 3;
+        this.nombreEssaisRestant = nombreEssaisRestant;
         this.essaisRestantLabel = new JLabel("Essais restants : " + Integer.toString(this.nombreEssaisRestant));
         this.add(this.essaisRestantLabel);
     }
@@ -21,5 +24,13 @@ public class EssaisRestant extends JPanel {
 
     public int getNombreEssaisRestant() {
         return nombreEssaisRestant;
+    }
+
+    public void setEssaisRestantLabelInvisible(){
+        this.essaisRestantLabel.setVisible(false);
+    }
+
+    public void setEssaisRestantLabelVisible(){
+        this.essaisRestantLabel.setVisible(true);
     }
 }

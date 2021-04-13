@@ -15,7 +15,6 @@ public class Chrono extends JPanel implements ActionListener {
     private float time = 0;
     private JLabel chronoLabel = new JLabel();
 
-
     public Chrono() {
         this.setLayout(new GridBagLayout());
         this.add(chronoLabel);
@@ -32,6 +31,14 @@ public class Chrono extends JPanel implements ActionListener {
 
     public void stop() {
         this.TIMER.stop();
+    }
+
+    public void setChronoLabelInvisible(){
+        this.chronoLabel.setVisible(false);
+    }
+
+    public void setChronoLabelVisible(){
+        this.chronoLabel.setVisible(true);
     }
 
     @Override
