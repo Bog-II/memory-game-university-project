@@ -16,7 +16,7 @@ public class Menu extends JPanel {
 
     public Menu(Memory memory) {
 
-        this.nouvellePartieButton = new NouvellePartie(new ControlNouvellePartie(this));
+        this.nouvellePartieButton = new NouvellePartie(new ControlNouvellePartie(this.tailleGrillePanel));
 
         this.add(bestScoreButton);
         this.add(Box.createHorizontalStrut(24));
@@ -24,9 +24,5 @@ public class Menu extends JPanel {
         this.add(Box.createHorizontalStrut(24));
         this.add(tailleGrillePanel);
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-    }
-
-    public TailleGrille getTailleGrillePanel() {
-        return tailleGrillePanel;
     }
 }

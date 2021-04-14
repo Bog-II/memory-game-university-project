@@ -9,11 +9,12 @@ import java.awt.*;
 
 public class Memory extends JFrame {
     private static Memory selfMemory;
+
     private JPanel container = new JPanel();
     private Menu panelMenu;
     private Chrono chrono = new Chrono();
     private JPanel bienvenue = new JPanel();
-    private Grille grille = new Grille(4);
+    private Grille grille = new Grille(4);;
     private EssaisRestant essaisRestant = new EssaisRestant(3);
 
     public Memory() {
@@ -83,5 +84,9 @@ public class Memory extends JFrame {
 
     public Menu getPanelMenu() {
         return panelMenu;
+    }
+
+    public EssaisRestant getEssaisRestant() {
+        return essaisRestant;
     }
 }

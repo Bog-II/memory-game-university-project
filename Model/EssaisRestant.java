@@ -1,5 +1,6 @@
 package Model;
 
+import View.EndGameMessage;
 import View.Memory;
 
 import javax.swing.*;
@@ -20,10 +21,19 @@ public class EssaisRestant extends JPanel {
     public void decrease(){
         this.nombreEssaisRestant -= 1;
         this.essaisRestantLabel.setText("Essais restants : " + Integer.toString(this.nombreEssaisRestant));
+        if (this.nombreEssaisRestant == 0){
+            Memory.getSelfMemory().getChrono().stop();
+            new EndGameMessage("Perdu \uD83D\uDE2D", "Ne perdez pas espoir");
+        }
     }
 
     public int getNombreEssaisRestant() {
         return nombreEssaisRestant;
+    }
+
+    public void setNombreEssaisRestant(int nombreEssaisRestant) {
+        this.nombreEssaisRestant = nombreEssaisRestant;
+        this.essaisRestantLabel.setText("Essais restants : " + Integer.toString(nombreEssaisRestant));
     }
 
     public void setEssaisRestantLabelInvisible(){
@@ -33,4 +43,6 @@ public class EssaisRestant extends JPanel {
     public void setEssaisRestantLabelVisible(){
         this.essaisRestantLabel.setVisible(true);
     }
+
+
 }
