@@ -70,9 +70,14 @@ public class BestTimes extends JPanel {
     }
     
     public void initContainerBestTime(){
-        this.containerBestTime = new JPanel();
+        GridLayout containerLayout = new GridLayout(1, 3);
+        containerLayout.setHgap(10);
+        containerLayout.setVgap(10);
+
+        this.containerBestTime = new JPanel(containerLayout);
+//        this.containerBestTime.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.showBestScores();
-        this.containerBestTime.add(bestTimesThreePanel);
+        this.containerBestTime.add(this.bestTimesThreePanel);
         this.containerBestTime.add(bestTimesFourPanel);
         this.containerBestTime.add(bestTimesFivePanel);
         this.add(containerBestTime);
@@ -89,15 +94,6 @@ public class BestTimes extends JPanel {
 
     public void showBestScores(){
         this.initInnerPanel();
-
-//        JLabel titleThreeByThree = ;
-//        JLabel titleFourByFour = ;
-//        JLabel titleFiveByFive = ;
-//        titleThreeByThree.setFont(new Font("SansSerif", Font.BOLD, 24));
-//        titleFourByFour.setFont(new Font("SansSerif", Font.BOLD, 24));
-//        titleFiveByFive.setFont(new Font("SansSerif", Font.BOLD, 24));
-
-
         addTimesToPanel(BEST_TIMES_THREE_NAME, this.bestTimesThreePanel, new JLabel("3x3"));
         addTimesToPanel(BEST_TIMES_FOUR_NAME, this.bestTimesFourPanel, new JLabel("4x4"));
         addTimesToPanel(BEST_TIMES_FIVE_NAME, this.bestTimesFivePanel, new JLabel("5x5"));
