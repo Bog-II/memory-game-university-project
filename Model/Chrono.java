@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 
 public class Chrono extends JPanel implements ActionListener {
     // CONSTANTS
+    public final static DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#######0.0");
     private final Timer TIMER = new Timer(100, this);
 
     // VARIABLES
@@ -41,11 +42,16 @@ public class Chrono extends JPanel implements ActionListener {
         this.chronoLabel.setVisible(true);
     }
 
+    public String getTime() {
+        return DECIMAL_FORMAT.format(this.time);
+    }
+
+    public Float getTimeFloat(){ return this.time; }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         this.time += 0.1;
-        DecimalFormat decimalFormat = new DecimalFormat("#######0.0");
-        String format = decimalFormat.format(time);
+        String format = DECIMAL_FORMAT.format(time);
         this.chronoLabel.setText("Temps : " + format);
     }
 }

@@ -1,29 +1,39 @@
 package Controllers;
 
+import Model.BestTimes.BestTimes;
+import Model.Chrono;
 import Model.GridBouton;
+import View.EndGameMessage;
 import View.Memory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class ControlGridBouton implements ActionListener {
 
+    private Memory memory;
+    private Chrono chrono;
     private static GridBouton gridButtonAlreadyRevealed;
     private static boolean isThereAnGridButtonRevealed = false;
+    public static int numberOfPairHidden;
+
+    private GridBouton gridBouton;
 
     private final Timer TIMER = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            hideCurrentGridButton();
-            hideAlreadyRevealedGridButton();
             TIMER.restart();
             TIMER.stop();
+            if (Memory.isInGame){
+                hideAlreadyRevealedGridButton();
+                hideCurrentGridButton();
+            }
             Memory.getSelfMemory().setEnabled(true);
         }
     });
 
-    private GridBouton gridBouton;
 
     public ControlGridBouton(GridBouton gridBouton) {
         this.gridBouton = gridBouton;
@@ -33,7 +43,23 @@ public class ControlGridBouton implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (isThereAnGridButtonRevealed) {
             revealCurrentGridButton();
-            if (!GridBouton.equals(this.gridBouton, gridButtonAlreadyRevealed)) {
+            if (GridBouton.equals(this.gridBouton, gridButtonAlreadyRevealed)) {
+                numberOfPairHidden--;
+                if (numberOfPairHidden == 0) {
+                    this.memory = Memory.getSelfMemory();
+                    this.chrono = this.memory.getChrono();
+                    this.chrono.stop();
+
+                    Float chronoTime = this.chrono.getTimeFloat();
+                    String chrono = this.chrono.getTime();
+                    new EndGameMessage("Gagné \uD83D\uDC4F", "N'hésiter pas à rejouter", "avec un temps de " + chrono);
+                    try {
+                        BestTimes.receiveAndTreatNewTime(chronoTime, this.memory.getGrille().gridLength);
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                }
+            } else {
                 Memory.getSelfMemory().setEnabled(false);
                 TIMER.start();
                 Memory.getSelfMemory().getEssaisRestant().decrease();
@@ -60,6 +86,10 @@ public class ControlGridBouton implements ActionListener {
         gridButtonAlreadyRevealed.setEnabled(true);
         gridButtonAlreadyRevealed.hideRevealedImage();
         gridButtonAlreadyRevealed = null;
+    }
+
+    public static void setNumberOfPairHidden(int numberOfPairHidden) {
+        ControlGridBouton.numberOfPairHidden = numberOfPairHidden;
     }
 
     public static void setIsThereAnGridButtonRevealedFalse() {

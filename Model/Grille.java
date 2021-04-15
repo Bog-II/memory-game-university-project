@@ -1,13 +1,16 @@
 package Model;
 
+import Controllers.ControlGridBouton;
+import View.Memory;
+
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.Random;
 
 public class Grille extends JPanel {
     private final Random RANDOM = new Random();
 
+    public int gridLength;
     private boolean isGridLengthEven;
     private int numberOfDistinctImageInGrid;
     private Images images;
@@ -15,6 +18,7 @@ public class Grille extends JPanel {
     private ImageIcon[] gridImages;
 
     public Grille(int gridLength) {
+        this.gridLength = gridLength;
         this.isGridLengthEven = gridLength % 2 == 0;
         initImages(gridLength);
         addImagesToGrid();
@@ -60,10 +64,21 @@ public class Grille extends JPanel {
     }
 
     public void newGrille(int newGridLength){
+        this.gridLength = newGridLength;
         this.removeAll();
         this.isGridLengthEven = newGridLength % 2 == 0;
         initImages(newGridLength);
         addImagesToGrid();
         this.setLayout(new GridLayout(newGridLength, newGridLength, 40 / newGridLength, 40 / newGridLength));
+        ControlGridBouton.setNumberOfPairHidden((isGridLengthEven) ? this.numberOfDistinctImageInGrid : this.numberOfDistinctImageInGrid - 1);
+        this.setEnabled(true);
+        Memory.isInGame = true;
+    }
+
+    @Override
+    public void setEnabled(boolean bool){
+        for (Component childrenComponentPanel : this.getComponents()) {
+            childrenComponentPanel.setEnabled(bool);
+        }
     }
 }

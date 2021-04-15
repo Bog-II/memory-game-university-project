@@ -32,7 +32,7 @@ public class ControlNouvellePartie implements ActionListener {
             MEMORY.startGame();
             launchGameForFirstTime = false;
         }
-        MEMORY.getEssaisRestant().setNombreEssaisRestant(3);
+        MEMORY.getEssaisRestant().setNombreEssaisRestant(Memory.NOMBRE_ESSAIS_DEPART);
         GRILLE.newGrille(getTailleGrille());
         ControlGridBouton.setIsThereAnGridButtonRevealedFalse();
         CHRONO.restart();

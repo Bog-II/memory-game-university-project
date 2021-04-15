@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Memory extends JFrame {
+
+    public final static int NOMBRE_ESSAIS_DEPART = 5;
+    public static boolean isInGame;
     private static Memory selfMemory;
 
     private JPanel container = new JPanel();
@@ -15,7 +18,7 @@ public class Memory extends JFrame {
     private Chrono chrono = new Chrono();
     private JPanel bienvenue = new JPanel();
     private Grille grille = new Grille(4);;
-    private EssaisRestant essaisRestant = new EssaisRestant(3);
+    private EssaisRestant essaisRestant = new EssaisRestant(Memory.NOMBRE_ESSAIS_DEPART);
 
     public Memory() {
         initFrame();
