@@ -1,6 +1,6 @@
 package Controllers;
 
-import Models.BestTimes.BestTimes;
+import BestTimes.BestTimes;
 import Models.Chrono;
 import Models.GridBouton;
 import Views.EndGameMessage;

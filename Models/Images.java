@@ -10,8 +10,8 @@ public class Images {
     // CONSTANTS
     public final static int WIDTH_IMAGE = 70;
     public final static int HEIGHT_IMAGE = 70;
-    public final static ImageIcon DEFAULT_COVER_IMAGE = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, new ImageIcon("projet-swing-s2/Ressources/Images/visibility.png"));
-    private final static String PATH_FOLDER = "projet-swing-s2/Ressources/Images/Flag";
+    public final static ImageIcon DEFAULT_COVER_IMAGE = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, new ImageIcon("Ressources/Images/visibility.png"));
+    private final static String PATH_FOLDER = "Ressources/Images/Flag";
     private final static File FOLDER = new File(PATH_FOLDER);
     private final static File[] IMAGE_FILES = FOLDER.listFiles();
     private final static int NUMBER_OF_DISPONIBLE_IMAGES = IMAGE_FILES.length;

@@ -1,4 +1,4 @@
-package Models.BestTimes;
+package BestTimes;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +8,9 @@ public class BestTimes extends JPanel {
     /**
      * Only the three best times are stored in ascending order into BestTimesXXXX.txt text file.
      */
-    private static final String BEST_TIMES_THREE_NAME = "projet-swing-s2/Model/BestTimes/BestTimesThree.txt";
-    private static final String BEST_TIMES_FOUR_NAME = "projet-swing-s2/Model/BestTimes/BestTimesFour.txt";
-    private static final String BEST_TIMES_FIVE_NAME = "projet-swing-s2/Model/BestTimes/BestTimesFive.txt";
+    private static final String BEST_TIMES_THREE_NAME = "BestTimes/BestTimesThree.txt";
+    private static final String BEST_TIMES_FOUR_NAME = "BestTimes/BestTimesFour.txt";
+    private static final String BEST_TIMES_FIVE_NAME = "BestTimes/BestTimesFive.txt";
     private static final int NUMBER_OF_BEST_TIME_PER_CATEGORY = 3;
 
     private JPanel containerBestTime;
