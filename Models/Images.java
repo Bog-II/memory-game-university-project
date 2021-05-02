@@ -10,9 +10,9 @@ public class Images {
     // CONSTANTS
     public final static int WIDTH_IMAGE = 70;
     public final static int HEIGHT_IMAGE = 70;
-    public final static ImageIcon DEFAULT_COVER_IMAGE = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, new ImageIcon("projet-swing-s2/Model/Images/visibility.png"));
-    private final static String CHEMIN = "projet-swing-s2/Model/Images/Flag";
-    private final static File FOLDER = new File(CHEMIN);
+    public final static ImageIcon DEFAULT_COVER_IMAGE = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, new ImageIcon("projet-swing-s2/Ressources/Images/visibility.png"));
+    private final static String PATH_FOLDER = "projet-swing-s2/Ressources/Images/Flag";
+    private final static File FOLDER = new File(PATH_FOLDER);
     private final static File[] IMAGE_FILES = FOLDER.listFiles();
     private final static int NUMBER_OF_DISPONIBLE_IMAGES = IMAGE_FILES.length;
     private final Random RANDOM = new Random();
@@ -21,8 +21,8 @@ public class Images {
 
 
     /**
-     * Create a new intance of {@link Ressources.Images} with {@nbImage} random picture affected to {@link Ressources.Images#arrayImages} from {@link Ressources.Images#FOLDER} using the Durstenfeld shuffle algorithm,
-     * Throw an error if {@nbImage} is superior to {@link Ressources.Images#NUMBER_OF_DISPONIBLE_IMAGES}
+     * Create a new intance of {@link Images} with {@nbImage} random picture affected to {@link Images#arrayImages} from {@link Images#FOLDER} using the Durstenfeld shuffle algorithm,
+     * Throw an error if {@nbImage} is superior to {@link Images#NUMBER_OF_DISPONIBLE_IMAGES}
      *
      * @param nbImage
      */
@@ -36,13 +36,12 @@ public class Images {
 
         /**
          * Index of {@link arrayImages}
-         */
-        int indexArrayImages = 0;
+         */        int indexArrayImages = 0;
         for (int lastIndex = NUMBER_OF_DISPONIBLE_IMAGES - 1; lastIndex > NUMBER_OF_DISPONIBLE_IMAGES - 1 - nbImage; lastIndex--) {
 
             int randomIndexOf_IMAGE_FILES = RANDOM.nextInt(lastIndex);
             File currentImageFile = IMAGE_FILES[randomIndexOf_IMAGE_FILES];
-            ImageIcon currentImage = new ImageIcon(CHEMIN + '/' + currentImageFile.getName());
+            ImageIcon currentImage = new ImageIcon(PATH_FOLDER + '/' + currentImageFile.getName());
             ImageIcon newImageIcon = redimensionIconImage(WIDTH_IMAGE, HEIGHT_IMAGE, currentImage);
 
             this.arrayImages[indexArrayImages] = newImageIcon;
