@@ -1,9 +1,9 @@
 package Controllers;
 
-import Model.Chrono;
-import Model.Grille;
-import View.Memory;
-import View.MenuItems.TailleGrille;
+import Models.Chrono;
+import Models.Grille;
+import Views.Memory;
+import Views.MenuItems.TailleGrille;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

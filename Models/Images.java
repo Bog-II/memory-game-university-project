@@ -1,4 +1,4 @@
-package Model;
+package Models;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +21,8 @@ public class Images {
 
 
     /**
-     * Create a new intance of {@link Images} with {@nbImage} random picture affected to {@link Images#arrayImages} from {@link Images#FOLDER} using the Durstenfeld shuffle algorithm,
-     * Throw an error if {@nbImage} is superior to {@link Images#NUMBER_OF_DISPONIBLE_IMAGES}
+     * Create a new intance of {@link Ressources.Images} with {@nbImage} random picture affected to {@link Ressources.Images#arrayImages} from {@link Ressources.Images#FOLDER} using the Durstenfeld shuffle algorithm,
+     * Throw an error if {@nbImage} is superior to {@link Ressources.Images#NUMBER_OF_DISPONIBLE_IMAGES}
      *
      * @param nbImage
      */

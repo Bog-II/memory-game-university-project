@@ -1,8 +1,8 @@
-package View;
+package Views;
 
-import Model.Chrono;
-import Model.EssaisRestant;
-import Model.Grille;
+import Models.Chrono;
+import Models.EssaisRestant;
+import Models.Grille;
 
 import javax.swing.*;
 import java.awt.*;

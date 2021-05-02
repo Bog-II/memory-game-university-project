@@ -1,4 +1,4 @@
-package Model.BestTimes;
+package Models.BestTimes;
 
 import javax.swing.*;
 import java.awt.*;

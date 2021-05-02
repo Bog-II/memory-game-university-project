@@ -1,14 +1,10 @@
-package View;
+package Views;
 
 import Controllers.ControlEndGameMessageButton;
-import Controllers.ControlNouvellePartie;
-import View.MenuItems.NouvellePartie;
-import View.MenuItems.TailleGrille;
+import Views.MenuItems.TailleGrille;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class EndGameMessage extends JFrame {
     private JPanel container = new JPanel();

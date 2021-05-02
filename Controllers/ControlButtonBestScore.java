@@ -1,6 +1,6 @@
 package Controllers;
 
-import Model.BestTimes.BestTimes;
+import Models.BestTimes.BestTimes;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

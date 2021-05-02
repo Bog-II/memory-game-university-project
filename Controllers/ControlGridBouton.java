@@ -1,10 +1,10 @@
 package Controllers;
 
-import Model.BestTimes.BestTimes;
-import Model.Chrono;
-import Model.GridBouton;
-import View.EndGameMessage;
-import View.Memory;
+import Models.BestTimes.BestTimes;
+import Models.Chrono;
+import Models.GridBouton;
+import Views.EndGameMessage;
+import Views.Memory;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

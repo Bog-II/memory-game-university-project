@@ -1,7 +1,7 @@
-package Model;
+package Models;
 
 import Controllers.ControlGridBouton;
-import View.Memory;
+import Views.Memory;
 
 import javax.swing.*;
 import java.awt.*;

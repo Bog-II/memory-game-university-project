@@ -1,4 +1,4 @@
-package View.MenuItems;
+package Views.MenuItems;
 
 import Controllers.ControlNouvellePartie;
 

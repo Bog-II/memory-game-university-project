@@ -1,7 +1,7 @@
-package Model;
+package Models;
 
-import View.EndGameMessage;
-import View.Memory;
+import Views.EndGameMessage;
+import Views.Memory;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,9 @@
-package View;
+package Views;
 
 import Controllers.ControlNouvellePartie;
-import View.MenuItems.BestScore;
-import View.MenuItems.NouvellePartie;
-import View.MenuItems.TailleGrille;
+import Views.MenuItems.BestScore;
+import Views.MenuItems.NouvellePartie;
+import Views.MenuItems.TailleGrille;
 
 import javax.swing.*;
 import java.awt.*;
