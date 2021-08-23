@@ -1,2 +1,2 @@
 # projet-swing-s2
-Jeu memory à réaliser à l'aide de la librairie Swing
+Jeu memory réalisé à l'aide de la librairie Swing
